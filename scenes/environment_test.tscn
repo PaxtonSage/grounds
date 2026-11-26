@@ -41,3 +41,5 @@ scale = Vector2(2, 2)
 [node name="platform7" parent="arena" unique_id=1189709946 instance=ExtResource("1_ehpby")]
 position = Vector2(772, 110)
 scale = Vector2(2, 2)
+
+[editable path="spiderheck_movement"]

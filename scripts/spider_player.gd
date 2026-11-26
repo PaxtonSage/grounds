@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		
 	if not attached:
 		var direction := Input.get_axis("left", "right")
-		if direction and is_on_floor() or is_on_wall():
+		if direction:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 				
 	move_and_slide()
 	
-	$RayCast2D.target_position = get_local_mouse_position()
+	$RayCast2D.target_position = get_local_mouse_position() * Vector2(999,999)
 	
 	$RayCast2D.force_raycast_update()
 	
