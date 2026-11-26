@@ -1,11 +1,43 @@
 [gd_scene format=3 uid="uid://cb8noqhjylr4g"]
 
 [ext_resource type="PackedScene" uid="uid://by28t1gd7yedb" path="res://scenes/block.tscn" id="1_ehpby"]
-[ext_resource type="PackedScene" uid="uid://xbifyjs7y1jt" path="res://scenes/bopl_player.tscn" id="2_2xeua"]
+[ext_resource type="PackedScene" uid="uid://xbifyjs7y1jt" path="res://scenes/spider_movement.tscn" id="2_2xeua"]
 
 [node name="environment_test" type="Node2D" unique_id=1908566974]
 
-[node name="block" parent="." unique_id=252514105 instance=ExtResource("1_ehpby")]
-position = Vector2(497.50006, 366.25006)
+[node name="spiderheck_movement" parent="." unique_id=1643849711 instance=ExtResource("2_2xeua")]
+position = Vector2(482, 140)
 
-[node name="bopl_movement" parent="." unique_id=1643849711 instance=ExtResource("2_2xeua")]
+[node name="arena" type="Node2D" parent="." unique_id=795425564]
+
+[node name="platform" parent="arena" unique_id=255555737 instance=ExtResource("1_ehpby")]
+position = Vector2(576, 330)
+scale = Vector2(14, 1)
+
+[node name="platform2" parent="arena" unique_id=1863673106 instance=ExtResource("1_ehpby")]
+position = Vector2(280, 470)
+scale = Vector2(10, 1)
+
+[node name="platform3" parent="arena" unique_id=1250797845 instance=ExtResource("1_ehpby")]
+position = Vector2(872, 470)
+scale = Vector2(10, 1)
+
+[node name="platform4" parent="arena" unique_id=302142728 instance=ExtResource("1_ehpby")]
+position = Vector2(190, 210)
+scale = Vector2(6, 1)
+
+[node name="platform5" parent="arena" unique_id=885310972 instance=ExtResource("1_ehpby")]
+position = Vector2(962, 210)
+scale = Vector2(6, 1)
+
+[node name="wall" parent="arena" unique_id=1351527726 instance=ExtResource("1_ehpby")]
+position = Vector2(576, 528)
+scale = Vector2(2, 8)
+
+[node name="platform6" parent="arena" unique_id=224551738 instance=ExtResource("1_ehpby")]
+position = Vector2(380, 110)
+scale = Vector2(2, 2)
+
+[node name="platform7" parent="arena" unique_id=1189709946 instance=ExtResource("1_ehpby")]
+position = Vector2(772, 110)
+scale = Vector2(2, 2)
