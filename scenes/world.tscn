@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3gw20sq6lbij"]
 
 [ext_resource type="PackedScene" uid="uid://clo87csr54do7" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://by28t1gd7yedb" path="res://scenes/block.tscn" id="2_rwgxs"]
 
 [node name="world" type="Node2D" unique_id=201552216]
 
@@ -8,3 +9,7 @@
 position = Vector2(934, 493)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=244212436]
+
+[node name="block" parent="." unique_id=252514105 instance=ExtResource("2_rwgxs")]
+position = Vector2(741, 607)
+scale = Vector2(100, 1)
