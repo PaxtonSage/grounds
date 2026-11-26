@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cb8noqhjylr4g"]
+
+[ext_resource type="PackedScene" uid="uid://by28t1gd7yedb" path="res://scenes/block.tscn" id="1_ehpby"]
+[ext_resource type="PackedScene" uid="uid://xbifyjs7y1jt" path="res://scenes/bopl_player.tscn" id="2_2xeua"]
+
+[node name="environment_test" type="Node2D" unique_id=1908566974]
+
+[node name="block" parent="." unique_id=252514105 instance=ExtResource("1_ehpby")]
+position = Vector2(497.50006, 366.25006)
+
+[node name="bopl_movement" parent="." unique_id=1643849711 instance=ExtResource("2_2xeua")]
