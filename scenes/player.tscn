@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dpbb25gbeef36" path="res://scripts/player.gd" id="1_3vyb7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ikpfy"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nseq"]
 radius = 25.0
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1597782147]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1655655575]
 script = ExtResource("1_3vyb7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=779616222]
-shape = SubResource("CircleShape2D_ikpfy")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=548336135]
+shape = SubResource("CircleShape2D_4nseq")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=250093115]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2014898106]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1342477754]
