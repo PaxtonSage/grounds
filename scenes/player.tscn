@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://clo87csr54do7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikpfy"]
+radius = 25.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1597782147]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=779616222]
+shape = SubResource("CircleShape2D_ikpfy")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=250093115]
