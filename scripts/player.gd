@@ -18,11 +18,11 @@ var canDoubleJump = false
 
 enum jumpType {
 	floor = 0,
-	wall,
-	double,
+	wall, 
+	double, 
 	head,
 	coyote
-}
+}  
 var jump
 
 func _ready() -> void:
@@ -52,11 +52,11 @@ func _physics_process(delta: float) -> void:
 		canJump = true
 		jump = jumpType.wall
 		if dir == Vector2.ZERO:
-			#jumpVector = get_wall_normal()
-			jumpVector = Vector2.UP
+			jumpVector = get_wall_normal()
+			#jumpVector = Vector2.UP
 		else:
-			jumpVector = (Vector2.UP + dir)/2
-		
+			#jumpVector = (Vector2.UP + dir)/2
+			jumpVector = get_wall_normal()
 
 		
 	
@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x *= friction
 	
 	
-	print("x velocity:", velocity.x/r, "m/s, y velocity:", velocity.y/r, "m/s")
+	#print("x velocity:", velocity.x/r, "m/s, y velocity:", velocity.y/r, "m/s")
 	
 	
 	move_and_slide()
