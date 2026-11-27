@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://by28t1gd7yedb" path="res://scenes/geometry/block.tscn" id="2_sqeqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk7c4"]
-size = Vector2(260, 57)
+size = Vector2(296, 74.5)
 
 [node name="world" type="Node2D" unique_id=201552216]
 
@@ -52,9 +52,18 @@ rotation = 1.5707964
 scale = Vector2(1, 8.588583)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2098759725]
+position = Vector2(-249, 27)
+gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=396726401]
-position = Vector2(-215, -8)
+shape = SubResource("RectangleShape2D_jk7c4")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=682030197]
+position = Vector2(-253, -109)
+mass = 0.011
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=99432966]
+scale = Vector2(0.2155319, 1.5434793)
 shape = SubResource("RectangleShape2D_jk7c4")
 
 [editable path="player"]
