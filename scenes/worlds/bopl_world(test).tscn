@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh7xqvuxts1sd"]
 
-[ext_resource type="PackedScene" uid="uid://dh7xqvuxts1sd" path="res://bopl_world(test).tscn" id="1_asbwx"]
+[ext_resource type="PackedScene" uid="uid://dh7xqvuxts1sd" path="res://scenes/worlds/bopl_world(test).tscn" id="1_asbwx"]
 
 [node name="bopl_world(test)" unique_id=997957632 instance=ExtResource("1_asbwx")]
 

@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bcd7t14o87xga" path="res://scripts/spider_player.gd" id="1_lmax2"]
 [ext_resource type="Texture2D" uid="uid://dodw63w2e4mfs" path="res://sprites/icon.svg" id="2_fyxuk"]
+[ext_resource type="Script" uid="uid://br0jkn7x3phvf" path="res://scripts/debug_anchor.gd" id="4_x1wbf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jk7c4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmt4g"]
+radius = 4.0
 
 [node name="spider_movement" type="Node2D" unique_id=1643849711]
 
@@ -19,8 +23,9 @@ texture = ExtResource("2_fyxuk")
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=731647168]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1981575733]
+[node name="debug_anchor" type="Area2D" parent="." unique_id=667577660]
+script = ExtResource("4_x1wbf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1439384700]
-shape = SubResource("CircleShape2D_jk7c4")
-debug_color = Color(0.6666667, 0.47058824, 0, 0.41960785)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="debug_anchor" unique_id=334400921]
+shape = SubResource("CircleShape2D_hmt4g")
+debug_color = Color(0, 0.6, 0, 0.41960785)
