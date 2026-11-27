@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://by28t1gd7yedb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3vyb7"]
+rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikpfy"]
 size = Vector2(32, 32)

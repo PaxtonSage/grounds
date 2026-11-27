@@ -5,12 +5,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nseq"]
 radius = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ikpfy"]
+radius = 16.0
+height = 38.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1655655575]
+floor_stop_on_slope = false
 script = ExtResource("1_3vyb7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=548336135]
+[node name="body" type="CollisionShape2D" parent="." unique_id=548336135]
 shape = SubResource("CircleShape2D_4nseq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1342477754]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2014898106]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1342477754]
+[node name="Area2D" type="Area2D" parent="." unique_id=1562605842]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1181561038]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ikpfy")

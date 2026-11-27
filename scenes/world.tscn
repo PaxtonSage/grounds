@@ -16,3 +16,11 @@ scale = Vector2(20, 1)
 [node name="block2" parent="." unique_id=402747571 instance=ExtResource("2_rwgxs")]
 position = Vector2(0, 128)
 scale = Vector2(40, 1)
+
+[node name="block3" parent="." unique_id=845979683 instance=ExtResource("2_rwgxs")]
+position = Vector2(-256, 0)
+scale = Vector2(1, 16)
+
+[node name="block4" parent="." unique_id=1450702348 instance=ExtResource("2_rwgxs")]
+position = Vector2(-79, -187)
+scale = Vector2(1, 4)

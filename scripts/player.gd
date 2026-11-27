@@ -1,8 +1,9 @@
 extends CharacterBody2D # gives us access to characterbody functions
 
 const r = 32.0 # pixels to meters
+var friction = 0.98
 var gravity = 15.0 * r # gravity
-var air = .99 # air resistance
+var air = .98 # air resistance
 var dir:Vector2 # (x, y)
 var acceleration:Vector2 # (x, y)
 var xAccelerationForce = 20.0 * r
@@ -50,10 +51,11 @@ func _physics_process(delta: float) -> void:
 		timer = coyoteTime
 		canJump = true
 		jump = jumpType.wall
-		if dir == Vector2.ZERO: 
-			jumpVector = get_wall_normal()
+		if dir == Vector2.ZERO:
+			#jumpVector = get_wall_normal()
+			jumpVector = Vector2.UP
 		else:
-			jumpVector = get_wall_normal()*2 + Vector2(dir.x, dir.y)
+			jumpVector = (Vector2.UP + dir)/2
 		
 
 		
@@ -62,21 +64,23 @@ func _physics_process(delta: float) -> void:
 	
 	acceleration.x += dir.x * xAccelerationForce
 	acceleration.y += dir.y * yAccelerationForce
+		
+	acceleration.y += gravity
 	
 	if Input.is_action_just_pressed("jump") and canJump:
 		canJump = false
 		timer = 0
-		acceleration *= 0
 		acceleration += jumpVector * jumpForce
+		velocity.y *= 0
 		if jump == jumpType.double:
 			canDoubleJump = false
-		
-	acceleration.y += gravity
-	
 	
 	velocity.x += (acceleration.x) * delta
 	velocity.y += (acceleration.y) * delta
-	velocity = velocity * air 
+	velocity *= air
+	
+	if is_on_floor():
+		velocity.x *= friction
 	
 	
 	print("x velocity:", velocity.x/r, "m/s, y velocity:", velocity.y/r, "m/s")
