@@ -6,10 +6,13 @@
 [node name="world" type="Node2D" unique_id=201552216]
 
 [node name="player" parent="." unique_id=1597782147 instance=ExtResource("1_nnsk1")]
-position = Vector2(604, 476)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=244212436]
 
 [node name="block" parent="." unique_id=252514105 instance=ExtResource("2_rwgxs")]
-position = Vector2(741, 607)
-scale = Vector2(100, 1)
+position = Vector2(0, 32)
+scale = Vector2(20, 1)
+
+[node name="block2" parent="." unique_id=402747571 instance=ExtResource("2_rwgxs")]
+position = Vector2(0, 128)
+scale = Vector2(40, 1)

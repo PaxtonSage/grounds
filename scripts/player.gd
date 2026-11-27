@@ -1,35 +1,85 @@
-extends CharacterBody2D
+extends CharacterBody2D # gives us access to characterbody functions
 
-var dir:Vector2 
-var x_speed = 20
-var y_speed = 10
-var jumpForce = 2000
-var acceleration:Vector2
+const r = 32.0 # pixels to meters
+var gravity = 15.0 * r # gravity
+var air = .99 # air resistance
+var dir:Vector2 # (x, y)
+var acceleration:Vector2 # (x, y)
+var xAccelerationForce = 20.0 * r
+var	yAccelerationForce = 3.0 * r
+var jumpForce = 500 * r
+var jumpVector:Vector2 = Vector2(0, 1) # instantaneous acceleration value for jump
+var coyoteTime = 5
+var timer = 0
 
-var gravity = 200
+var canJump = false
+var canDoubleJump = false
 
-# Called when the node enters the scene tree for the first time.
+enum jumpType {
+	floor = 0,
+	wall,
+	double,
+	head,
+	coyote
+}
+var jump
+
 func _ready() -> void:
 	pass # Replace with function body.
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	dir.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	dir.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 	dir = dir.normalized()		#Only neccesary when dir.y is being taken account of
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
+	
+	canJump = false
+	if timer > 0:
+		timer -= delta
+		canJump = true
+		jump = jumpType.coyote
+	
+	if is_on_floor():
+		timer = coyoteTime
+		canJump = true
+		jump = jumpType.floor
+		jumpVector = Vector2.UP
+		
+	if is_on_wall():
+		timer = coyoteTime
+		canJump = true
+		jump = jumpType.wall
+		if dir == Vector2.ZERO: 
+			jumpVector = get_wall_normal()
+		else:
+			jumpVector = get_wall_normal()*2 + Vector2(dir.x, dir.y)
+		
+
+		
+	
 	acceleration = Vector2.ZERO
 	
-	acceleration.x += dir.x * x_speed
-	acceleration.y += dir.y * y_speed
+	acceleration.x += dir.x * xAccelerationForce
+	acceleration.y += dir.y * yAccelerationForce
 	
-	if Input.is_action_just_pressed("jump"):
-		acceleration.y = -jumpForce
+	if Input.is_action_just_pressed("jump") and canJump:
+		canJump = false
+		timer = 0
+		acceleration *= 0
+		acceleration += jumpVector * jumpForce
+		if jump == jumpType.double:
+			canDoubleJump = false
 		
 	acceleration.y += gravity
 	
 	
-	velocity.x += acceleration.x * delta
-	velocity.y += acceleration.y * delta
+	velocity.x += (acceleration.x) * delta
+	velocity.y += (acceleration.y) * delta
+	velocity = velocity * air 
+	
+	
+	print("x velocity:", velocity.x/r, "m/s, y velocity:", velocity.y/r, "m/s")
+	
 	
 	move_and_slide()
