@@ -3,59 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://clo87csr54do7" path="res://scenes/players/player.tscn" id="1_mnksr"]
 [ext_resource type="PackedScene" uid="uid://by28t1gd7yedb" path="res://scenes/geometry/block.tscn" id="2_sqeqr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk7c4"]
-size = Vector2(260, 57)
-
 [node name="world" type="Node2D" unique_id=201552216]
 
 [node name="player" parent="." unique_id=1597782147 instance=ExtResource("1_mnksr")]
 
-[node name="arena" type="Node2D" parent="." unique_id=973502789]
-
-[node name="block4" parent="arena" unique_id=1450702348 instance=ExtResource("2_sqeqr")]
-position = Vector2(538, -448.00003)
-rotation = 0.54704314
-scale = Vector2(1, 4)
-
-[node name="block" parent="arena" unique_id=252514105 instance=ExtResource("2_sqeqr")]
-position = Vector2(-32, -482)
+[node name="block" parent="." unique_id=252514105 instance=ExtResource("2_sqeqr")]
+position = Vector2(0, 32)
 scale = Vector2(20, 1)
 
-[node name="block2" parent="arena" unique_id=402747571 instance=ExtResource("2_sqeqr")]
+[node name="block2" parent="." unique_id=402747571 instance=ExtResource("2_sqeqr")]
 position = Vector2(0, 128)
 scale = Vector2(40, 1)
 
-[node name="block3" parent="arena" unique_id=845979683 instance=ExtResource("2_sqeqr")]
-position = Vector2(303, -243)
+[node name="block3" parent="." unique_id=845979683 instance=ExtResource("2_sqeqr")]
+position = Vector2(-256, 0)
 scale = Vector2(1, 16)
 
-[node name="block5" parent="arena" unique_id=1627994242 instance=ExtResource("2_sqeqr")]
-position = Vector2(507, -147)
-scale = Vector2(1, 16)
-
-[node name="block6" parent="arena" unique_id=552885218 instance=ExtResource("2_sqeqr")]
-position = Vector2(-366, -589)
-scale = Vector2(1, 3.1485832)
-
-[node name="block7" parent="arena" unique_id=2116522797 instance=ExtResource("2_sqeqr")]
-position = Vector2(-129, -570)
-rotation = 1.5707964
-scale = Vector2(1, 8.588583)
-
-[node name="block8" parent="arena" unique_id=622635810 instance=ExtResource("2_sqeqr")]
-position = Vector2(104, -683)
-scale = Vector2(1, 3.1485832)
-
-[node name="block9" parent="arena" unique_id=566125736 instance=ExtResource("2_sqeqr")]
-position = Vector2(-133, -676)
-rotation = 1.5707964
-scale = Vector2(1, 8.588583)
-
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2098759725]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=396726401]
-position = Vector2(-215, -8)
-shape = SubResource("RectangleShape2D_jk7c4")
+[node name="block4" parent="." unique_id=1450702348 instance=ExtResource("2_sqeqr")]
+position = Vector2(66, -33.000004)
+rotation = 0.5470431
+scale = Vector2(1, 4)
 
 [editable path="player"]
-[editable path="arena/block"]
+[editable path="block"]

@@ -52,11 +52,11 @@ func _physics_process(delta: float) -> void:
 		canJump = true
 		jump = jumpType.wall
 		if dir == Vector2.ZERO:
-			jumpVector = get_wall_normal() + Vector2.UP
+			jumpVector = get_wall_normal()
 			#jumpVector = Vector2.UP
 		else:
 			#jumpVector = (Vector2.UP + dir)/2
-			jumpVector = get_wall_normal() + Vector2.UP
+			jumpVector = get_wall_normal()
 
 		
 	
