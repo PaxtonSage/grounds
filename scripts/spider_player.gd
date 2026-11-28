@@ -44,6 +44,9 @@ func _physics_process(delta: float) -> void:
 		web_length = global_position.distance_to(anchor)
 		print("yo im attached")
 		
+	if Input.is_action_pressed("shoot"):
+		if Input.is_action_pressed("aim"):
+			web_length = web_length - 1.5
 	if Input.is_action_just_released("shoot"):
 		attached = false
 		print("let go ig")
