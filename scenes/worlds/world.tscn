@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://clo87csr54do7" path="res://scenes/players/player.tscn" id="1_mnksr"]
 [ext_resource type="PackedScene" uid="uid://by28t1gd7yedb" path="res://scenes/geometry/block.tscn" id="2_sqeqr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk7c4"]
-size = Vector2(296, 74.5)
+[ext_resource type="PackedScene" uid="uid://bi5lg82xf15vu" path="res://scenes/geometry/circle.tscn" id="3_sqeqr"]
 
 [node name="world" type="Node2D" unique_id=201552216]
 
