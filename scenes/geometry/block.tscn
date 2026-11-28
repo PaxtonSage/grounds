@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://by28t1gd7yedb"]
 
+[ext_resource type="Shader" uid="uid://c48vvu3ret0mw" path="res://shaders/block.gdshader" id="1_gkgri"]
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3vyb7"]
-rough = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkgri"]
+shader = ExtResource("1_gkgri")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikpfy"]
 size = Vector2(32, 32)
@@ -10,4 +14,5 @@ size = Vector2(32, 32)
 physics_material_override = SubResource("PhysicsMaterial_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1197905029]
+material = SubResource("ShaderMaterial_gkgri")
 shape = SubResource("RectangleShape2D_ikpfy")

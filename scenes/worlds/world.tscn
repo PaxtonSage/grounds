@@ -2,13 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://clo87csr54do7" path="res://scenes/players/player.tscn" id="1_mnksr"]
 [ext_resource type="PackedScene" uid="uid://by28t1gd7yedb" path="res://scenes/geometry/block.tscn" id="2_sqeqr"]
+[ext_resource type="PackedScene" uid="uid://bi5lg82xf15vu" path="res://scenes/geometry/circle.tscn" id="3_sqeqr"]
 
 [node name="world" type="Node2D" unique_id=201552216]
 
+[node name="block6" parent="." unique_id=252514105 instance=ExtResource("2_sqeqr")]
+position = Vector2(326, -124)
+scale = Vector2(14.6, 1)
+
 [node name="player" parent="." unique_id=1597782147 instance=ExtResource("1_mnksr")]
 
-[node name="block" parent="." unique_id=252514105 instance=ExtResource("2_sqeqr")]
-position = Vector2(0, 32)
+[node name="block" parent="." unique_id=807359547 instance=ExtResource("2_sqeqr")]
+position = Vector2(-20, 46)
 scale = Vector2(20, 1)
 
 [node name="block2" parent="." unique_id=402747571 instance=ExtResource("2_sqeqr")]
@@ -16,13 +21,20 @@ position = Vector2(0, 128)
 scale = Vector2(40, 1)
 
 [node name="block3" parent="." unique_id=845979683 instance=ExtResource("2_sqeqr")]
-position = Vector2(-256, 0)
+position = Vector2(-206, -289)
 scale = Vector2(1, 16)
 
 [node name="block4" parent="." unique_id=1450702348 instance=ExtResource("2_sqeqr")]
-position = Vector2(66, -33.000004)
-rotation = 0.5470431
+position = Vector2(77, -4.0531154e-06)
+rotation = 0.95234513
 scale = Vector2(1, 4)
 
+[node name="block5" parent="." unique_id=1179403764 instance=ExtResource("2_sqeqr")]
+position = Vector2(-71, -359)
+scale = Vector2(0.83862215, -16.716753)
+
+[node name="circle" parent="." unique_id=2118429347 instance=ExtResource("3_sqeqr")]
+position = Vector2(48, -272)
+scale = Vector2(2, 2)
+
 [editable path="player"]
-[editable path="block"]

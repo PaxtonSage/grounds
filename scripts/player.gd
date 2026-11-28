@@ -1,16 +1,15 @@
 extends CharacterBody2D # gives us access to characterbody functions
 
 var ray
-
 const r = 32.0 # pixels to meters
 var friction = 0.98
-var gravity = 15.0 * r # gravity
+var gravity = 24.0 * r # gravity
 var air = .98 # air resistance
 var dir:Vector2 # (x, y)
 var acceleration:Vector2 # (x, y)
 var xAccelerationForce = 20.0 * r
 var	yAccelerationForce = 3.0 * r
-var jumpForce = 500 * r
+var jumpForce:Vector2 = Vector2(600*r, 800*r)
 var jumpVector:Vector2 = Vector2(0, 1) # instantaneous acceleration value for jump
 var coyoteTime = 5
 var timer = 0
@@ -39,6 +38,7 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
 	canJump = false
+	jumpVector = dir
 	if timer > 0:
 		timer -= delta
 		canJump = true
@@ -50,23 +50,27 @@ func _physics_process(delta: float) -> void:
 		jump = jumpType.floor
 		jumpVector = Vector2.UP
 	else:
-		acceleration.y += gravity
+		#acceleration.y += gravity
+		pass
 		
 	if is_on_wall():
 		timer = coyoteTime
 		canJump = true
 		jump = jumpType.wall
 		if dir == Vector2.ZERO:
-			jumpVector = get_wall_normal()
-			#jumpVector = Vector2.UP
+			#jumpVector = get_wall_normal()
+			jumpVector = (Vector2.UP + get_wall_normal())/1.5
+			#jumpVector = dir
 		else:
 			#jumpVector = (Vector2.UP + dir)/2
-			jumpVector = get_wall_normal()
+			#jumpVector = get_wall_normal()
+			pass
 	
 	acceleration.x += dir.x * xAccelerationForce
 	acceleration.y += dir.y * yAccelerationForce
 			
 	if Input.is_action_just_pressed("jump") and canJump:
+		print(jump)
 		canJump = false
 		timer = 0
 		acceleration += jumpVector * jumpForce
@@ -75,7 +79,7 @@ func _physics_process(delta: float) -> void:
 			canDoubleJump = false
 			
 			
-			
+	acceleration.y += gravity
 	velocity.x += (acceleration.x) * delta
 	velocity.y += (acceleration.y) * delta
 	velocity *= air
